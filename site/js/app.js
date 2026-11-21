@@ -9,7 +9,7 @@ const CFG = {
   whatsappVisible: "+54 9 3487 62-3501",
   instagram: "maxi.pallas",           // usuario sin @. Vacío = no se muestra
   demoUrl: "",                        // link a la demo. Vacío = la sección de demo queda oculta
-  gaId: "",                           // ID de Google Analytics 4 (ej: "G-ABC123DEF4"). Vacío = inactivo
+  gaId: "G-WNCHT6VZH0",               // ID de Google Analytics 4 (ej: "G-ABC123DEF4"). Vacío = inactivo
   mensajeInicial: "Hola, vi tu página y quiero una web para mi negocio"
 };
 
