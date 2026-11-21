@@ -208,6 +208,89 @@ const CFG = {
   }
 
   if (form) {
+    const steps = $$(".wizard-step", form);
+    const wizardProgress = $("#wizardProgress");
+    const wizardNav = $("#wizardNav");
+    const stepLabel = $("#wizardStepLabel");
+    const stepTag = $("#wizardStepTag");
+    const progressFill = $("#wizardProgressFill");
+    const prevBtn = $("#wizardPrev");
+    const nextBtn = $("#wizardNext");
+    let currentStep = 0;
+
+    function clearStatus() {
+      if (!status) return;
+      status.className = "status";
+      status.textContent = "";
+    }
+
+    function showStep(idx) {
+      if (!steps.length) return;
+      currentStep = Math.max(0, Math.min(steps.length - 1, idx));
+      steps.forEach((s, i) => s.classList.toggle("is-active", i === currentStep));
+
+      if (stepLabel) stepLabel.textContent = "Paso " + (currentStep + 1) + " de " + steps.length;
+      if (progressFill) progressFill.style.width = (((currentStep + 1) / steps.length) * 100) + "%";
+      if (stepTag) {
+        const isReq = currentStep === 0 || currentStep === 1;
+        const isFinal = currentStep === steps.length - 1;
+        stepTag.textContent = isFinal ? "Listo para enviar" : isReq ? "Obligatorio" : "Opcional";
+        stepTag.classList.toggle("is-req", isReq || isFinal);
+      }
+      if (prevBtn) prevBtn.hidden = currentStep === 0;
+      if (nextBtn) nextBtn.hidden = currentStep === steps.length - 1;
+      clearStatus();
+    }
+
+    function validateStep(idx) {
+      const data = new FormData(form);
+      $$("fieldset", form).forEach((fs) => fs.classList.remove("has-error"));
+
+      if (idx === 0 && !data.get("rubro")) {
+        const fs = $('fieldset[data-group="rubro"]', form);
+        if (fs) fs.classList.add("has-error");
+        showStatus("error", "Elegí el rubro de tu negocio para seguir.");
+        const first = fs ? $("input", fs) : null;
+        if (first) first.focus();
+        return false;
+      }
+
+      if (idx === 1 && !data.getAll("necesidad").length) {
+        const fs = $('fieldset[data-group="necesidad"]', form);
+        if (fs) fs.classList.add("has-error");
+        showStatus("error", "Elegí al menos una opción de lo que querés lograr.");
+        const first = fs ? $("input", fs) : null;
+        if (first) first.focus();
+        return false;
+      }
+
+      return true;
+    }
+
+    if (steps.length) {
+      form.classList.add("is-wizard");
+      if (wizardProgress) wizardProgress.hidden = false;
+      if (wizardNav) wizardNav.hidden = false;
+      showStep(0);
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+          if (validateStep(currentStep)) showStep(currentStep + 1);
+        });
+      }
+      if (prevBtn) {
+        prevBtn.addEventListener("click", () => showStep(currentStep - 1));
+      }
+      $$('input[type="text"]', form).forEach((inp) => {
+        inp.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            if (currentStep < steps.length - 1 && nextBtn) nextBtn.click();
+          }
+        });
+      });
+    }
+
     const onFormChange = (e) => {
       // "No tengo presencia" es excluyente frente a tener redes, Maps o web
       if (e && e.target && e.target.name === "situacion" && e.target.checked) {
@@ -222,8 +305,7 @@ const CFG = {
         if ($("input:checked", fs)) fs.classList.remove("has-error");
       });
       if (status && status.classList.contains("is-error") && !$$("fieldset.has-error", form).length) {
-        status.className = "status";
-        status.textContent = "";
+        clearStatus();
       }
       updatePreview();
     };
@@ -241,6 +323,7 @@ const CFG = {
       const missing = ["rubro", "necesidad"].filter((n) => !data.getAll(n).length);
       $$("fieldset", form).forEach((fs) => fs.classList.remove("has-error"));
       if (missing.length) {
+        if (steps.length) showStep(missing[0] === "rubro" ? 0 : 1);
         missing.forEach((n) => $('fieldset[data-group="' + n + '"]', form).classList.add("has-error"));
         showStatus("error", "Falta elegir " + (missing.length === 2 ? "el tipo de negocio y al menos una opción de lo que necesitás" : missing[0] === "rubro" ? "el tipo de negocio" : "al menos una opción de lo que necesitás") + ".");
         const first = $('fieldset[data-group="' + missing[0] + '"] input', form);

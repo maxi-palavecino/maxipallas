@@ -551,9 +551,8 @@
           <div class="contact-head">
             <span class="section-tag section-tag-light">Charla breve + demo sin cargo</span>
             <h2 id="contacto-titulo">Contame qué vendés y <em class="hl">armemos tu demo</em></h2>
-            <p class="section-sub">Respondé estas cuatro preguntas en menos de 1 minuto. Con eso reviso cómo te
-              encuentran hoy en Google y redes, te escribo por WhatsApp y te muestro cómo quedaría tu negocio con una
-              web hecha a medida.</p>
+            <p class="section-sub">Respondé paso a paso en menos de 1 minuto para revisar tu presencia actual y armar
+              tu mensaje directo a WhatsApp.</p>
             <ul class="contact-highlights">
               <li>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -580,117 +579,161 @@
           </div>
 
           <form class="form-box" id="formContacto" novalidate>
-            <fieldset data-group="rubro">
-              <legend><span class="q-num">01</span> ¿De qué rubro es tu negocio? <span
-                  class="q-badge is-req">Obligatorio</span></legend>
-              <div class="options">
-                <label class="chip"><input type="radio" name="rubro"
-                    value="gastronomía"><span>Gastronomía</span></label>
-                <label class="chip"><input type="radio" name="rubro"
-                    value="peluquería o estética"><span>Peluquería / Estética</span></label>
-                <label class="chip"><input type="radio" name="rubro"
-                    value="construcción o materiales"><span>Construcción</span></label>
-                <label class="chip"><input type="radio" name="rubro"
-                    value="salud o consultorio"><span>Salud / Consultorio</span></label>
-                <label class="chip"><input type="radio" name="rubro"
-                    value="inmobiliaria"><span>Inmobiliaria</span></label>
-                <label class="chip"><input type="radio" name="rubro" value="otro rubro"><span>Otro</span></label>
+            <div class="wizard-progress" id="wizardProgress" hidden>
+              <div class="wizard-progress-meta">
+                <span class="wizard-step-label" id="wizardStepLabel">Paso 1 de 6</span>
+                <span class="wizard-step-tag" id="wizardStepTag">Obligatorio</span>
               </div>
-            </fieldset>
-
-            <fieldset data-group="necesidad">
-              <legend><span class="q-num">02</span> ¿Qué querés lograr? <span
-                  class="q-badge is-req">Obligatorio</span> <span class="q-badge">Podés elegir varias</span>
-              </legend>
-              <div class="options">
-                <label class="chip"><input type="checkbox" name="necesidad" value="tener página web"><span>Tener página
-                    web</span></label>
-                <label class="chip"><input type="checkbox" name="necesidad" value="renovar mi web actual"><span>Renovar
-                    mi web actual</span></label>
-                <label class="chip"><input type="checkbox" name="necesidad"
-                    value="mostrar mi catálogo, menú o carta"><span>Catálogo / menú / carta</span></label>
-                <label class="chip"><input type="checkbox" name="necesidad"
-                    value="recibir turnos o consultas por WhatsApp"><span>Turnos por WhatsApp</span></label>
-                <label class="chip"><input type="checkbox" name="necesidad"
-                    value="aparecer en Google y Maps"><span>Aparecer en Google y Maps</span></label>
+              <div class="wizard-track" aria-hidden="true">
+                <div class="wizard-fill" id="wizardProgressFill"></div>
               </div>
-            </fieldset>
-
-            <fieldset data-group="situacion">
-              <legend><span class="q-num">03</span> ¿Cómo te encuentran hoy? <span class="q-badge">Opcional</span>
-                <span class="q-badge">Podés elegir varias</span>
-              </legend>
-              <div class="options">
-                <label class="chip"><input type="checkbox" name="situacion" value="nada online"><span>No tengo
-                    presencia</span></label>
-                <label class="chip"><input type="checkbox" name="situacion"
-                    value="Instagram / redes sociales"><span>Instagram / Redes sociales</span></label>
-                <label class="chip"><input type="checkbox" name="situacion" value="Google Maps"><span>Google
-                    Maps</span></label>
-                <label class="chip"><input type="checkbox" name="situacion" value="una web antigua"><span>Tengo una web
-                    antigua</span></label>
-              </div>
-            </fieldset>
-
-            <fieldset data-group="plazo">
-              <legend><span class="q-num">04</span> ¿Para cuándo la necesitás? <span class="q-badge">Opcional</span>
-              </legend>
-              <div class="options">
-                <label class="chip"><input type="radio" name="plazo" value="esta semana"><span>Esta
-                    semana</span></label>
-                <label class="chip"><input type="radio" name="plazo" value="este mes"><span>Este mes</span></label>
-                <label class="chip"><input type="radio" name="plazo"
-                    value="solo estoy evaluando opciones"><span>Solo estoy evaluando</span></label>
-              </div>
-            </fieldset>
-
-            <div class="field">
-              <label for="nombre">Tu nombre, negocio y ciudad <span class="q-badge">Opcional</span></label>
-              <input id="nombre" name="nombre" type="text" placeholder="Ej: Ana, Café Luna · Tu ciudad"
-                autocomplete="name" maxlength="90">
-              <p class="hint">Para buscar tu rubro en tu zona y armar una muestra pensada para tu marca.</p>
             </div>
 
-            <div class="field">
-              <label for="referencia">Tu Instagram, ficha de Maps o web actual <span
-                  class="q-badge">Opcional</span></label>
-              <input id="referencia" name="referencia" type="text"
-                placeholder="Ej: @cafeluna.ok o link de Google Maps" autocomplete="off" maxlength="160">
-              <p class="hint">Si ya tenés perfil o página, la reviso antes de charlar para mostrarte mejoras concretas.</p>
+            <div class="wizard-step is-active" data-step="1">
+              <fieldset data-group="rubro">
+                <legend><span class="q-num">01</span> ¿De qué rubro es tu negocio? <span
+                    class="q-badge is-req">Obligatorio</span></legend>
+                <div class="options">
+                  <label class="chip"><input type="radio" name="rubro"
+                      value="gastronomía"><span>Gastronomía</span></label>
+                  <label class="chip"><input type="radio" name="rubro"
+                      value="peluquería o estética"><span>Peluquería / Estética</span></label>
+                  <label class="chip"><input type="radio" name="rubro"
+                      value="construcción o materiales"><span>Construcción</span></label>
+                  <label class="chip"><input type="radio" name="rubro"
+                      value="salud o consultorio"><span>Salud / Consultorio</span></label>
+                  <label class="chip"><input type="radio" name="rubro"
+                      value="inmobiliaria"><span>Inmobiliaria</span></label>
+                  <label class="chip"><input type="radio" name="rubro" value="otro rubro"><span>Otro</span></label>
+                </div>
+              </fieldset>
             </div>
 
-            <div class="msg-preview" id="msgPreview" aria-live="polite">
-              <div class="msg-preview-head">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path
-                    d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.3 14.97l-.3-.18-3.08.89.9-3-.2-.31A8.1 8.1 0 0 1 12.04 3.8Zm-3.3 4.1c-.2 0-.5.07-.75.35-.26.28-1 1-1 2.4 0 1.4 1.03 2.8 1.17 3 .14.2 2 3.2 4.95 4.35 2.45.97 2.95.78 3.48.73.53-.05 1.7-.7 1.95-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.2-.55-.34-.29-.15-1.7-.84-1.97-.94-.26-.1-.46-.14-.65.15-.19.29-.75.94-.92 1.13-.17.2-.34.22-.63.07-.29-.14-1.22-.45-2.32-1.43-.86-.77-1.44-1.7-1.6-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.15-.17.2-.29.3-.48.1-.2.05-.37-.02-.51-.07-.15-.65-1.6-.9-2.18-.23-.57-.47-.49-.65-.5h-.55Z" />
+            <div class="wizard-step" data-step="2">
+              <fieldset data-group="necesidad">
+                <legend><span class="q-num">02</span> ¿Qué querés lograr? <span
+                    class="q-badge is-req">Obligatorio</span> <span class="q-badge">Podés elegir varias</span>
+                </legend>
+                <div class="options">
+                  <label class="chip"><input type="checkbox" name="necesidad" value="tener página web"><span>Tener
+                      página web</span></label>
+                  <label class="chip"><input type="checkbox" name="necesidad"
+                      value="renovar mi web actual"><span>Renovar mi web actual</span></label>
+                  <label class="chip"><input type="checkbox" name="necesidad"
+                      value="mostrar mi catálogo, menú o carta"><span>Catálogo / menú / carta</span></label>
+                  <label class="chip"><input type="checkbox" name="necesidad"
+                      value="recibir turnos o consultas por WhatsApp"><span>Turnos por WhatsApp</span></label>
+                  <label class="chip"><input type="checkbox" name="necesidad"
+                      value="aparecer en Google y Maps"><span>Aparecer en Google y Maps</span></label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="wizard-step" data-step="3">
+              <fieldset data-group="situacion">
+                <legend><span class="q-num">03</span> ¿Cómo te encuentran hoy? <span class="q-badge">Opcional</span>
+                  <span class="q-badge">Podés elegir varias</span>
+                </legend>
+                <div class="options">
+                  <label class="chip"><input type="checkbox" name="situacion" value="nada online"><span>No tengo
+                      presencia</span></label>
+                  <label class="chip"><input type="checkbox" name="situacion"
+                      value="Instagram / redes sociales"><span>Instagram / Redes sociales</span></label>
+                  <label class="chip"><input type="checkbox" name="situacion" value="Google Maps"><span>Google
+                      Maps</span></label>
+                  <label class="chip"><input type="checkbox" name="situacion" value="una web antigua"><span>Tengo una
+                      web antigua</span></label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="wizard-step" data-step="4">
+              <fieldset data-group="plazo">
+                <legend><span class="q-num">04</span> ¿Para cuándo la necesitás? <span
+                    class="q-badge">Opcional</span>
+                </legend>
+                <div class="options">
+                  <label class="chip"><input type="radio" name="plazo" value="esta semana"><span>Esta
+                      semana</span></label>
+                  <label class="chip"><input type="radio" name="plazo" value="este mes"><span>Este mes</span></label>
+                  <label class="chip"><input type="radio" name="plazo"
+                      value="solo estoy evaluando opciones"><span>Solo estoy evaluando</span></label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="wizard-step" data-step="5">
+              <div class="field">
+                <label for="nombre">Tu nombre, negocio y ciudad <span class="q-badge">Opcional</span></label>
+                <input id="nombre" name="nombre" type="text" placeholder="Ej: Ana, Café Luna · Tu ciudad"
+                  autocomplete="name" maxlength="90">
+                <p class="hint">Para buscar tu rubro en tu zona y armar una muestra para tu marca.</p>
+              </div>
+
+              <div class="field field-last">
+                <label for="referencia">Tu Instagram, ficha de Maps o web actual <span
+                    class="q-badge">Opcional</span></label>
+                <input id="referencia" name="referencia" type="text"
+                  placeholder="Ej: @cafeluna.ok o link de Google Maps" autocomplete="off" maxlength="160">
+                <p class="hint">Si ya tenés perfil o página, la reviso antes de charlar.</p>
+              </div>
+            </div>
+
+            <div class="wizard-step" data-step="6">
+              <div class="msg-preview" id="msgPreview" aria-live="polite">
+                <div class="msg-preview-head">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.3 14.97l-.3-.18-3.08.89.9-3-.2-.31A8.1 8.1 0 0 1 12.04 3.8Zm-3.3 4.1c-.2 0-.5.07-.75.35-.26.28-1 1-1 2.4 0 1.4 1.03 2.8 1.17 3 .14.2 2 3.2 4.95 4.35 2.45.97 2.95.78 3.48.73.53-.05 1.7-.7 1.95-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.2-.55-.34-.29-.15-1.7-.84-1.97-.94-.26-.1-.46-.14-.65.15-.19.29-.75.94-.92 1.13-.17.2-.34.22-.63.07-.29-.14-1.22-.45-2.32-1.43-.86-.77-1.44-1.7-1.6-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.15-.17.2-.29.3-.48.1-.2.05-.37-.02-.51-.07-.15-.65-1.6-.9-2.18-.23-.57-.47-.49-.65-.5h-.55Z" />
+                  </svg>
+                  <span>Vista previa de tu mensaje</span>
+                </div>
+                <p class="msg-preview-text" id="msgPreviewText">Elegí tu rubro y lo que necesitás para generar tu mensaje
+                  listo para enviar.</p>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn btn-block" type="submit">
+                  <span>Enviar y agendar por WhatsApp</span>
+                  <span class="circle" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div class="status" id="formStatus" role="status" aria-live="polite"></div>
+
+            <div class="wizard-nav" id="wizardNav" hidden>
+              <button class="wizard-btn-prev" id="wizardPrev" type="button" hidden>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m15 18-6-6 6-6" />
                 </svg>
-                <span>Vista previa de tu mensaje</span>
-              </div>
-              <p class="msg-preview-text" id="msgPreviewText">Elegí tu rubro y lo que necesitás para generar tu mensaje
-                listo para enviar.</p>
-            </div>
-
-            <div class="form-actions">
-              <button class="btn btn-block" type="submit">
-                <span>Enviar y agendar por WhatsApp</span>
+                <span>Anterior</span>
+              </button>
+              <button class="btn wizard-btn-next" id="wizardNext" type="button">
+                <span>Siguiente</span>
                 <span class="circle" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M7 17 17 7M8 7h9v9" />
+                    <path d="m9 18 6-6-6-6" />
                   </svg>
                 </span>
               </button>
-              <div class="status" id="formStatus" role="status" aria-live="polite"></div>
-              <p class="form-privacy">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="4" y="11" width="16" height="10" rx="2" />
-                  <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-                </svg>
-                <span>Tus datos no se almacenan: solo arman el mensaje directo hacia mi WhatsApp.</span>
-              </p>
             </div>
+
+            <p class="form-privacy">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="11" width="16" height="10" rx="2" />
+                <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+              </svg>
+              <span>Tus datos no se almacenan: solo arman el mensaje directo hacia mi WhatsApp.</span>
+            </p>
           </form>
 
           <noscript>
