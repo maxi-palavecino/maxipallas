@@ -297,18 +297,30 @@ h3 { font-size: 1.08rem; font-weight: 600; line-height: 1.35; margin-bottom: 6px
 .nav-pill-status {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   min-width: 0;
   min-height: 38px;
   padding: 0 2px;
   text-decoration: none;
-  font-size: .78rem;
-  font-weight: 600;
+  font-size: .92rem;
+  font-weight: 700;
+  letter-spacing: -.015em;
   color: #fff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.nav-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.nav-brand-mark svg { width: 24px; height: 24px; display: block; }
 
 .nav-links { display: none; list-style: none; gap: 2px; }
 .nav-links a {
@@ -2095,7 +2107,8 @@ details p {
 /* ---- Breakpoints (mobile-first) ---- */
 @media (max-width: 359px) {
   .nav { padding: 6px 8px 6px 10px; gap: 6px; }
-  .nav-pill-status { font-size: .72rem; gap: 5px; }
+  .nav-pill-status { font-size: .82rem; gap: 6px; }
+  .nav-brand-mark, .nav-brand-mark svg { width: 21px; height: 21px; }
   .nav .btn-sm { padding: 4px 4px 4px 10px; font-size: .74rem; gap: 5px; }
   .nav .btn-sm .circle { width: 24px; height: 24px; }
   .nav-toggle { width: 36px; height: 36px; }
@@ -2177,7 +2190,8 @@ details p {
   .nav .btn-sm .circle { width: 28px; height: 28px; }
   .nav .btn-sm .circle svg { width: 14px; height: 14px; }
   section { scroll-margin-top: 84px; }
-  .nav-pill-status { display: none; }
+  .nav-pill-status { font-size: .95rem; }
+  .nav-actions { margin-left: 0; }
   .nav-links { display: flex; }
   .nav-toggle, .nav-panel { display: none; }
 
