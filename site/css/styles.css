@@ -428,8 +428,13 @@ section { padding: 64px 0; scroll-margin-top: 68px; }
 /* ---- Hero oscuro + verde + celular ficticio interactivo ---- */
 .hero {
   position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
   padding: 84px 0 48px;
 }
+.hero > .wrap { width: 100%; }
 .hero-grid { display: grid; gap: 36px; align-items: center; }
 .hero-copy { text-align: center; }
 
@@ -2207,7 +2212,7 @@ details p {
   .nav-links { display: flex; }
   .nav-toggle, .nav-panel { display: none; }
 
-  .hero { padding: 144px 0 72px; }
+  .hero { padding: 92px 0 48px; }
   .hero-grid { grid-template-columns: 1.15fr .85fr; gap: 48px; }
   .hero-copy { text-align: left; }
   .hero h1 { margin: 0 0 20px; }
